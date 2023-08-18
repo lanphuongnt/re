@@ -1,3 +1,4 @@
+# Hơm guộc - RE 18/8 #
 ## Chall1 ##
 **Source**
 ```C
@@ -50,7 +51,7 @@ _BOOL8 __fastcall sub_140001000(_BYTE *a1)
 ```
 Hàm này so sánh từng kí tự của chuỗi input
 
-***Sol***
+**Sol**
 ```C
 #include <stdio.h>
 
@@ -138,7 +139,8 @@ __int64 __fastcall sub_7FF6BC7F1000(__int64 a1)
   return 1;
 }
 ```
-***Sol***
+Có byte_7FF6BC7F3000, i, chuyển vế để tính a1[i]
+**Sol**
 ![byte_7FF6BC7F3000](image-6.png)
 ```C
 #include <stdio.h>
@@ -160,6 +162,8 @@ void main(void){
 ![Result](image-7.png)
 
 ## Chall 4 ##
+
+Bài này đổi chỗ 4 bit cao với 4 bit thấp.
 
 ```C
 #include <stdio.h>
@@ -197,6 +201,7 @@ __int64 __fastcall sub_140001000(__int64 a1)
   return 1;
 }
 ```
+Bài này có a1[i + 1] để tính a1[i], byte cuối là NULL.
 **Sol**
 ```C
 #include <stdio.h>
@@ -259,6 +264,7 @@ void main(void){
     solve();
 }
 ```
+Bruteforce xem byte[i] ở vị trí nào trong mảng byte_20
 
 ![result](image-10.png)
 
@@ -310,6 +316,8 @@ void main(void){
     solve();
 }
 ```
+Bruteforce xem giá trị nào thỏa mãn thì ghi nhận.
+
 ![result_chall8](image-11.png)
 
 
@@ -330,7 +338,6 @@ __int64 __fastcall sub_140001000(__int64 a1)
 }
 
 */
-//byte_20[a1[i]] = byte[i]
 
 
 #include <stdio.h>
@@ -353,6 +360,7 @@ void main(void){
     solve();
 }
 ```
+Rotate value theo chiều ngược lại để lấy flag.
 ![result_7](image-12.png)
 
 
@@ -394,6 +402,8 @@ void main(void){
 }
 
 ```
+Ngoại trừ block[1] (j = 0) được tính bằng giá trị cũ (trước đó) của block thì các block khác đều được tính dựa trên giá trị của block vừa mới tính xong. Nên mình có thể tìm ngược lại để tính được giá trị cũ.
+
 ![result_9](image-13.png)
 
 ##BasicCrackme##
@@ -411,4 +421,4 @@ for i in range (81):
     
 print("".join(flag))
 ```
-v1 nó không đến nỗi lớn (vẫn nằm trong 4 bytes) nên có thể skip qua cái hidword. Các giá trị của enc là lodword -> chuyển vế rồi tính.
+v1 không lớn (vẫn nằm trong 4 bytes) nên có thể skip qua cái hidword. Các giá trị của enc là lodword -> chuyển vế rồi tính.
