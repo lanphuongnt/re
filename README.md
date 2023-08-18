@@ -139,7 +139,8 @@ __int64 __fastcall sub_7FF6BC7F1000(__int64 a1)
   return 1;
 }
 ```
-Có byte_7FF6BC7F3000, i, chuyển vế để tính a1[i]/
+Có byte_7FF6BC7F3000, i, chuyển vế để tính a1[i].
+
 **Sol**
 ![byte_7FF6BC7F3000](image-6.png)
 ```C
