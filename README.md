@@ -412,6 +412,36 @@ Ngoại trừ block[1] (j = 0) được tính bằng giá trị cũ (trước đ
 ![result_9](image-13.png)
 
 ## BasicCrackme ##
+**Source**
+```C
+int __cdecl sub_401500(int a1)
+{
+  __int64 v1; // rax
+  __int64 v2; // rcx
+  __int64 v3; // rax
+  __int64 v4; // rax
+  int i; // [esp+Ch] [ebp-14h]
+
+  for ( i = 0; i <= 80; ++i )
+  {
+    v1 = (Str[i % len] * Str[i % len] + i) ^ *(char *)(i + a1);
+    dword_405040[2 * i] = v1;
+    dword_405044[2 * i] = HIDWORD(v1);
+    LODWORD(v2) = dword_405040[2 * i];
+    HIDWORD(v2) = dword_405044[2 * i];
+    v3 = v2 - Str[i % len];
+    dword_405040[2 * i] = v3;
+    dword_405044[2 * i] = HIDWORD(v3);
+    LODWORD(v2) = dword_405040[2 * i];
+    HIDWORD(v2) = dword_405044[2 * i];
+    v4 = v2 + i;
+    dword_405040[2 * i] = v4;
+    dword_405044[2 * i] = HIDWORD(v4);
+  }
+  return 0;
+}
+```
+> -v1 không lớn (vẫn nằm trong 4 bytes) nên có thể skip qua cái hidword. Các giá trị của enc là lodword -> chuyển vế rồi tính.
 ```python
 Str = "have a good day! enjoy wargame!"
 
@@ -426,4 +456,4 @@ for i in range (81):
     
 print("".join(flag))
 ```
-v1 không lớn (vẫn nằm trong 4 bytes) nên có thể skip qua cái hidword. Các giá trị của enc là lodword -> chuyển vế rồi tính.
+
