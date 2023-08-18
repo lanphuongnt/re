@@ -187,7 +187,9 @@ int main(){
 ![result](image-8.png)
 
 ## Chall 5 ##
+
 ![result](image-9.png)
+
 **Source**
 ```C
 __int64 __fastcall sub_140001000(__int64 a1)
@@ -203,6 +205,7 @@ __int64 __fastcall sub_140001000(__int64 a1)
 }
 ```
 Bài này có a1[i + 1] để tính a1[i], byte cuối là NULL.
+
 **Sol**
 ```C
 #include <stdio.h>
@@ -265,7 +268,7 @@ void main(void){
     solve();
 }
 ```
-Bruteforce xem byte[i] ở vị trí nào trong mảng byte_20
+Bruteforce xem byte[i] ở vị trí nào trong mảng byte_20.
 
 ![result](image-10.png)
 
@@ -362,6 +365,7 @@ void main(void){
 }
 ```
 Rotate value theo chiều ngược lại để lấy flag.
+
 ![result_7](image-12.png)
 
 
@@ -407,7 +411,7 @@ Ngoại trừ block[1] (j = 0) được tính bằng giá trị cũ (trước đ
 
 ![result_9](image-13.png)
 
-##BasicCrackme##
+## BasicCrackme ##
 ```python
 Str = "have a good day! enjoy wargame!"
 
